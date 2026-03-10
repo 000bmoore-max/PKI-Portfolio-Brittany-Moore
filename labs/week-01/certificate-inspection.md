@@ -15,20 +15,16 @@ assets/screenshots/week-01/certificate-inspection.png
 ## Website Information
 
 **Website inspected:**  
-<!-- Enter full URL -->
+https://www.google.com/
 
 **Issuer (Certificate Authority):**  
-<!-- Example: DigiCert, Let's Encrypt, GlobalSign -->
-
+WE2 Google Trust Services 
 **Valid from:**  
-<!-- Start date -->
-
+February 2nd,2026
 **Valid until:**  
-<!-- Expiration date -->
-
+April 27th, 2026
 **Signature algorithm:**  
-<!-- Example: sha256WithRSAEncryption -->
-
+X9.62 ECDSA signature with SHA-256
 ---
 
 ## Subject Alternative Names (SAN Entries)
@@ -46,18 +42,14 @@ List at least 2–3 SAN entries:
 Document three observations about the certificate.
 
 ### Observation 1
-<!-- What did you notice? -->
-
+I noticed that there is a Public Key listed on the certificate for the Google website.
 ### Observation 2
-<!-- What did you notice? -->
-
+The certificate expires only two months after it became active.
 ### Observation 3
-<!-- What did you notice? -->
-
+This certificate is version three.
 ---
 
 ## Reflection
 
-Based on your inspection, explain how this certificate contributes to secure HTTPS communication.
-
+The certificate helps secure HTTPS communication by verifying that the website is legitimate and trusted. It contains a public key that allows the browser and server to begin an encrypted connection using TLS. This encryption protects the data sent between the user and the website from being intercepted or altered.
 (2–3 sentences)
