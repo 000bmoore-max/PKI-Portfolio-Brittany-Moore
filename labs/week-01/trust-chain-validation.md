@@ -12,24 +12,21 @@ Embed the screenshot below:
 
 ![Trust Chain Validation](../../assets/screenshots/week-01/trust-chain-validation.png)
 
-
 ## Website Information
 
 **Website inspected:**  
-<!-- Enter full URL -->
-
+(https://www.google.com/)
 ---
 
 ## Certificate Chain Breakdown
 
 **Leaf (Server) Certificate**  
-<!-- Enter Common Name or Subject -->
-
+*.google.com
 **Intermediate Certificate Authority**
-<!-- Enter Intermediate CA name -->
+WR2
 
 **Root Certificate Authority (Trust Anchor)**
-<!-- Enter Root CA name -->
+GTS Root R1
 
 ---
 
@@ -37,9 +34,10 @@ Embed the screenshot below:
 
 Is the Root CA marked as trusted by your system?
 
-<!-- Yes / No -->
+ Yes 
 
 If yes, explain where that trust comes from (OS/browser root store).
+The trust comes from the root certificate store that is already built into the operating system or browser. These stores contain trusted root certificate authorities. When the browser checks a website certificate, it follows the chain until it reaches one of those trusted root certificates.
 
 If no, explain what warning or behavior occurred.
 
@@ -50,21 +48,15 @@ If no, explain what warning or behavior occurred.
 Document three observations about the certificate.
 
 ### Observation 1
-<!-- What did you notice about the chain structure? -->
+I noticed the certificate chain shows different levels, starting with the website certificate and then linking up to the root authority.
 
 ### Observation 2
-<!-- What did you notice about the Root CA? -->
-
+The root certificate authority is at the top of the chain and acts as the trust anchor for the rest of the certificates.
 ### Observation 3
-<!-- What did you notice about how the browser determines trust? -->
 
----
+The browser determines trust by checking each certificate in the chain until it reaches a root certificate authority that is already trusted by the system.
 
 ## Reflection
 
-In 3–5 sentences, explain:
-- Why the Root certificate is called a trust anchor
-- How validation walks the certificate chain
-- What would happen if the Root CA were not trusted
+The root certificate is called a trust anchor because it is the starting point of trust for the certificate chain. The browser validates each certificate step by step until it reaches a trusted root certificate authority. If the root certificate was not trusted, the browser would show a security warning and the connection would not be considered secure.
 
-Use your own words.
