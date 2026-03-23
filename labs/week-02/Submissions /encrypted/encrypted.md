@@ -43,7 +43,7 @@ If you include screenshots, store them in the **assets folder** and reference th
  
 Example:
  
-assets/screenshots/mk dir.png
+![Certificate Output](assets/certificate-output.png)
  
 ---
  
@@ -68,11 +68,13 @@ Examples:
 Explain **why the results matter**.
  
 Examples:
+The issuer is important in PKI because a trusted issuer needs to be verified.
  
 - Why the issuer is important in PKI
 - Why SAN is required for modern TLS validation
 - Why the certificate chain validates successfully
 - Why a misconfiguration would cause a failure
+
  
 ---
  
@@ -80,6 +82,7 @@ Examples:
 Document any issues encountered during the lab and how you resolved them.
  
 Examples:
+
  
 - command errors
 - missing intermediate certificates
