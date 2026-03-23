@@ -1,11 +1,9 @@
 # 1 Lab — [Week 2 lab]
  
 ## Overview
-Briefly describe the purpose of this lab in your own words.
-
 The purpose of this lab is to provide a hands on demonstrations of how to utilize Powershell and SSL to create folders, encrypt and decrypt information. Upon inputting the correct commands, this app shows how text is encrypted and decrypted allowing us to view the message in plaint text and encrypted form. It also teaches how to check for the changes that were made.
 
-What PKI concept or system behavior were you investigating? Encryption and Decryption
+ The PKI concept or system behavior that I was investigating was  encryption and decryption
  
 ---
  
@@ -14,7 +12,7 @@ Document the environment used to complete the lab.
  
 - Operating System: Windows 
 - Terminal Used:
-- OpenSSL Version (if applicable):32
+- OpenSSL Version 32
  
 ---
  
