@@ -24,7 +24,7 @@ This lab focused on understanding how symmetric encryption works using OpenSSL. 
 
 ## Results
 
-The plaintext file was successfully encrypted and became unreadable (ciphertext). After decryption, the file returned to its original readable format.
+The plaintext file was successfully encrypted and became unreadable (ciphertext). After decryption, the file returned to its original readable form.
 
 Verification was done using the `fc` command, which showed:
 
