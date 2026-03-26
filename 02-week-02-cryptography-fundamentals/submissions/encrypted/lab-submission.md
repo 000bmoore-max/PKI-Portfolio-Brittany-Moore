@@ -31,8 +31,7 @@ Verification was done using the `fc` command, which showed:
 FC: no differences encountered
 
 This confirmed that the encryption and decryption process worked correctly.
-
-![Verification](../../../../assets/screenshots/week-02/verification.png)
+![Verification](../../assets/screenshots/week-02/verification.png)
 
 ---
 
