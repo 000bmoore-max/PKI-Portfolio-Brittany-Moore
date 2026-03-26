@@ -57,7 +57,7 @@ One issue I encountered was that some commands like `openssl` and `diff` were no
 
 ## Artifacts
 
-- plaintext.txt  
-- plaintext.txt.enc  
-- plaintext.decrypted.txt  
-- verification screenshot stored in assets/screenshots/week-02/
+- plaintext.txt
+- plaintext.txt.enc
+- plaintext.decrypted.txt
+- verification.png
