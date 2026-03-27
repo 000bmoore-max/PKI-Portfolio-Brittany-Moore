@@ -1,60 +1,69 @@
-# Lab — Encryption & Decryption
+# Lab — Hashing & Integrity
 
 ## Overview
-This lab focused on understanding how symmetric encryption works using OpenSSL. The goal was to encrypt a file, decrypt it, and verify that the original data remained unchanged.
+This lab focused on understanding how cryptographic hashing works and how it is used to detect changes in data. The goal was to generate a hash of a file, modify the file, and observe how the hash value changes completely after even a small modification.
 
 ---
 
 ## Environment
+
 - Operating System: Windows
 - Terminal Used: OpenSSL Command Prompt
-- OpenSSL Version: OpenSSL 3.x
+- OpenSSL Version: OpenSSL 3.6.1
 
 ---
 
 ## Steps Performed
-1. Created a plaintext file containing test data.
-2. Used OpenSSL to encrypt the file using a symmetric algorithm.
-3. Decrypted the encrypted file back into plaintext.
-4. Compared the original and decrypted files to confirm they matched.
+
+1. Created a plaintext file using the echo command
+2. Generated a SHA-256 hash of the file using OpenSSL
+3. Modified the file by adding additional text
+4. Generated a new SHA-256 hash after modification
+5. Compared both hash outputs to observe differences
 
 ---
 
 ## Results
-- Successfully generated an encrypted file.
-- Successfully decrypted the file.
-- The decrypted file matched the original plaintext file.
 
-Original Hash:
+The original file was hashed using SHA-256, producing a fixed-length hexadecimal output. After modifying the file by adding the word "tampered", a completely different hash value was generated.
 
-C:\Users\kim>type labs\02-week-02-cryptography-fundamentals\submissions\hashes\message.sha256.txt
-SHA2-256(labs\02-week-02-cryptography-fundamentals\submissions\hashes\message.txt)= 0a2ae40887d2eeb805395e8744e7657b0a2fe2c7d68ae928bf883ebf92dc57ae
+This demonstrated that even a small change in the file results in a completely different hash.
 
-Modified Hash:
-
-C:\Users\kim>type labs\02-week-02-cryptography-fundamentals\submissions\hashes\message_tampered.sha256.txt
-SHA2-256(labs\02-week-02-cryptography-fundamentals\submissions\hashes\message.txt)= 17fd1d653bf6a736d399c9f80f78b05b79aed7f7fa90223b1bd228e08b9bf4ea
+![Hash Comparison](../../../../assets/screenshots/week-02/hash-comparison.png)
 
 ---
 
 ## Key Findings
-• Encryption protects data by converting it into unreadable format  
-• Decryption restores the original data using the correct key  
-• Matching files confirm integrity after decryption  
+
+- Hash values change completely even with small modifications
+- SHA-256 produces a fixed-length hexadecimal output
+- Hashing does not hide data (not encryption)
+- Hashing is used to detect data integrity
 
 ---
 
 ## Explanation
-Encryption ensures confidentiality by protecting data from unauthorized access. Decryption is required to restore the original data. If the decrypted file matches the original, it confirms that the encryption and decryption process worked correctly without data loss.
+
+Hashing is important because it ensures data integrity. If a file is changed, even slightly, the hash value will change significantly. This makes it easy to detect tampering.
+
+Hashing does not provide confidentiality because the original data is not encrypted and can still be read. Instead, hashing is used to verify that data has not been altered.
+
+In PKI systems, hashing is used in certificate signatures, file verification, and code signing to ensure data has not been modified.
 
 ---
 
 ## Challenges / Troubleshooting
-Some commands initially failed due to incorrect syntax, but were resolved by correcting command structure and file paths.
+
+One challenge encountered was incorrect command syntax when generating hashes. This was resolved by using the correct SHA-256 flag (-sha256) in the OpenSSL command.
+
+Another issue was file path confusion, which was resolved by carefully following the correct directory structure.
 
 ---
 
 ## Artifacts
-- plaintext.txt  
-- plaintext.txt.enc  
-- plaintext.decrypted.txt  
+
+- message.txt
+- message.sha256.txt
+- message_tampered.sha256.txt
+- screenshots stored in assets/screenshots/week-02/
+<img width="596" height="1380" alt="image" src="https://github.com/user-attachments/assets/1a025e0c-859f-4090-8ff6-aa92c5547b8d" />
