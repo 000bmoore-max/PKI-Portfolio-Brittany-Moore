@@ -66,4 +66,4 @@ Another issue was file path confusion, which was resolved by carefully following
 - message.sha256.txt
 - message_tampered.sha256.txt
 - screenshots stored in assets/screenshots/week-02/
-<img width="596" height="1380" alt="image" src="https://github.com/user-attachments/assets/1a025e0c-859f-4090-8ff6-aa92c5547b8d" />
+
