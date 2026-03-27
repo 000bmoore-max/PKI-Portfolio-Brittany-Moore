@@ -1,4 +1,4 @@
-# Lab — Hashing & Integrity
+# Lab 2 — Hashing & Integrity
 
 ## Overview
 This lab focused on understanding how cryptographic hashing works and how it is used to detect changes in data. The goal was to generate a hash of a file, modify the file, and observe how the hash value changes completely after even a small modification.
