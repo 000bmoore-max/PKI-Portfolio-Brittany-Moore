@@ -24,6 +24,9 @@ This lab focused on understanding how digital signatures provide authentication 
 ## Results
 The message was successfully signed and verified. The verification command returned **“Verified OK”**, confirming that the message had not been altered and that it was signed by the correct private key.
 
+![Certificate Output](assets/certificate-output.png)
+
+
 ---
 
 ## Key Findings
