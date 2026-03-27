@@ -50,7 +50,6 @@ The results matter because digital signatures are used to establish trust in sec
 ---
 
 ## Artifacts
-- private.key  
 - public.key  
 - message.txt  
 - message.sig  
