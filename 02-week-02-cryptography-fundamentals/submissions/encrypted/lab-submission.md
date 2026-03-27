@@ -1,4 +1,4 @@
-# Lab — -Week2 
+#2 Lab — -Week2 
 
 ## Overview
 This lab focused on understanding how symmetric encryption works using OpenSSL. The goal was to encrypt a plaintext file, decrypt it, and verify that the original data remained the same after the process.
