@@ -25,6 +25,16 @@ This lab focused on understanding how symmetric encryption works using OpenSSL. 
 - Successfully decrypted the file.
 - The decrypted file matched the original plaintext file.
 
+Original Hash:
+
+C:\Users\kim>type labs\02-week-02-cryptography-fundamentals\submissions\hashes\message.sha256.txt
+SHA2-256(labs\02-week-02-cryptography-fundamentals\submissions\hashes\message.txt)= 0a2ae40887d2eeb805395e8744e7657b0a2fe2c7d68ae928bf883ebf92dc57ae
+
+Modified Hash:
+
+C:\Users\kim>type labs\02-week-02-cryptography-fundamentals\submissions\hashes\message_tampered.sha256.txt
+SHA2-256(labs\02-week-02-cryptography-fundamentals\submissions\hashes\message.txt)= 17fd1d653bf6a736d399c9f80f78b05b79aed7f7fa90223b1bd228e08b9bf4ea
+
 ---
 
 ## Key Findings
