@@ -49,3 +49,7 @@ Certificate extensions determine how a certificate is used and trusted within a 
 ---
 
 ## Challenges / Troubleshooting
+Initially encountered an error where the openssl command was not recognized in Powershell.
+Resolved the issue by switching to the Win32 OpenSSL Command Promt, where OpenSSL was properly configured.
+Faced confusion locating generated files (e.g., leaf_cert.pem) after running commmands.
+Confirmed files were created in the current working directory and verified paths before continuing.
