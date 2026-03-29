@@ -23,9 +23,3 @@
 16. One question I still have is how certificate authorities are trusted by operating systems and browsers in the first place, and who decides which certificate authorities are included in the trusted root stores.
 
 ---
-
-## Professional Growth Check
-
-- Did you document clearly?
-- Did you use structured formatting?
-- Was your commit message meaningful?
