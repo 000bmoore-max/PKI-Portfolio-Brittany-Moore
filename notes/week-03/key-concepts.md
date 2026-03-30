@@ -1,60 +1,40 @@
 # Week 3 Key Concepts
 
-## Digital Certificates
-Digital certificates are used to verify the identity  
-of a system or website.
+## X.509 Certificate Structure
+An X.509 certificate contains key information like  
+subject, issuer, validity period, public key,  
+and signature.
 
-They contain information like the subject, issuer,  
-and public key.
-
-Certificates are a key part of PKI and enable secure  
-communication over networks.
-
----
-
-## Certificate Extensions
-Certificate extensions define what a certificate  
-is allowed to do.
-
-Important extensions include Subject Alternative Name (SAN),  
-Key Usage, and Extended Key Usage (EKU).
-
-These fields control how the certificate can be used  
-in real-world scenarios.
+These fields define identity and trust.
 
 ---
 
 ## Subject Alternative Name (SAN)
-SAN lists the valid domain names associated  
-with a certificate.
+SAN lists the valid domain names for a certificate.
 
-Modern browsers rely on SAN instead of the Common Name  
-to verify a website’s identity.
-
-If SAN is missing or incorrect, the certificate  
-will not be trusted.
+Browsers rely on SAN instead of the Common Name  
+to verify identity.
 
 ---
 
-## Certificate Chain
-A certificate chain connects a server certificate  
-to a trusted root certificate.
+## Key Usage
+Key Usage defines what actions a certificate  
+is allowed to perform.
 
-It includes the server certificate, intermediate  
-certificate(s), and root certificate.
-
-Each certificate in the chain must be valid  
-for trust to be established.
+Examples include digital signature and key encipherment.
 
 ---
 
-## Certificate Misconfigurations
-Misconfigurations like missing SAN, incorrect EKU,  
-expired certificates, or missing intermediates  
-can break trust.
+## Extended Key Usage (EKU)
+EKU defines the specific purpose of a certificate.
 
-These issues cause browsers to display security warnings  
-and block access to websites.
+For example, server authentication or client authentication.
 
-Understanding these helps identify and fix  
-real-world security problems.
+---
+
+## Certificate Chain and Trust
+Certificates form a chain from the server  
+to an intermediate to a root certificate.
+
+Trust is established when the full chain is valid  
+and linked to a trusted root.
