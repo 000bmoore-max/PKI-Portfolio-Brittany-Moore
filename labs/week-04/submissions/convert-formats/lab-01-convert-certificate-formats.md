@@ -61,13 +61,20 @@ This can lead to major security breaches and loss of trust.
 
 ## Challenges / Troubleshooting
 
-At first, understanding the difference between formats  
-was confusing because they represent the same certificate  
-in different ways.
+The main issue encountered during this lab was related to file location 
+and naming rather than the OpenSSL commands themselves.
 
-It also took some time to understand why the DER file  
-looked unreadable and how conversions worked without  
-changing the actual data.
+The certificate files were saved in a different directory than the one 
+being used in Git Bash, which caused repeated "No such file or directory" errors.
+
+There was also confusion with file naming, specifically duplicate extensions 
+such as ".pem.pem", which made it difficult to correctly reference files.
+
+Once the correct directory was used and file names were verified, 
+the OpenSSL commands executed successfully.
+
+This demonstrates that many certificate issues are caused by file path 
+and environment setup rather than the certificate itself.
 
 ---
 
