@@ -69,4 +69,4 @@ system, which highlights how much trust is delegated to external authorities.
 ## Artifacts
 - assets/screenshots/week-04/trust-store-list.png
 - assets/screenshots/week-04/digicert-details.png
-- assets/screenshots/week-04/digicert-cert-path.png
+- assets/screenshots/week-04/cert-path.png
