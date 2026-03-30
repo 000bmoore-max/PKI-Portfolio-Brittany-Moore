@@ -1,61 +1,82 @@
-# Lab 01 — Certificate Formats (Week 4)
+## Key Concepts
 
-## Results
+- Certificate vs Format:
+A certificate contains identity data (subject, issuer, validity, public key),
+while the format determines how that data is packaged and stored.
 
-- **What did the PEM file look like compared to the DER file?**  
-The PEM file was readable and had text with headers like  
-"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----".  
-The DER file looked like random binary data and was not readable.
+- PEM Format:
+Base64 encoded and readable in a text editor.
+Uses BEGIN/END markers.
+Common in Linux systems and web servers.
 
-- **What happened when you opened the .der file in a text editor?**  
-It showed unreadable characters and symbols because DER  
-is a binary format, not meant for human reading.
+- DER Format:
+Binary version of the same certificate data.
+Not readable in a text editor.
+Common in Java applications and older enterprise systems.
 
-- **What did the diff output show after converting PEM → DER → PEM?**  
-The diff showed no meaningful differences.  
-This confirmed that the conversion process did not change  
-the certificate data, only the format.
+- PFX / PKCS#12:
+Container format that includes certificate, private key, and chain.
+Password protected and used for secure transfer between systems.
+Important because it contains private key material.
 
-- **What information was displayed when you verified the PFX?**  
-It showed the certificate details along with the private key.  
-It also confirmed the certificate chain and that the bundle  
-contained both the certificate and its associated key.
+- File Extensions Are Misleading:
+Extensions like .cer, .crt, and .pem do not reliably indicate encoding.
+Files must be inspected to determine actual format.
 
----
+- Format Conversion:
+Converting between PEM and DER does not change certificate data.
+Only the encoding changes, so no new signature is required.
 
-## Key Findings
+- Private Key Protection:
+Private keys should never be exposed or stored unprotected.
+PFX files require passwords because they contain sensitive key material.
 
-PEM files are human-readable while DER files are binary.  
-Converting between formats does not change the certificate  
-data itself, only how it is stored.
+- Trust Store:
+A certificate is only trusted if its root CA exists in the system’s trust store.
+Trust is not automatic — it is enforced by the system.
 
-PFX files are different because they bundle certificates  
-and private keys together and require a password for protection.
+- Chain of Trust:
+Validation works by building a chain from leaf → intermediate → root.
+The root CA must already be trusted for validation to succeed.
 
----
+- Trust Decision:
+Trust is a policy decision controlled by the OS or organization.
+Adding a root CA grants it authority and must be carefully managed.
 
-## Explanation
+- Common Trust Store Mistakes:
+Installing certificates in the wrong store (user vs machine)
+Assuming all browsers use the same trust store
+Failing to update trust stores (especially on Linux)
+📌 Reflection (still short, still you)
+## Reflection
 
-- **Why does a PFX require a password?**  
-A PFX file contains a private key, which must be protected.  
-The password encrypts the file so unauthorized users cannot  
-access the private key.
+This week helped me understand that certificates don’t change, but the way they are stored
+and transferred does. I learned that formats like PEM, DER, and PFX all contain the same
+core data, but they behave differently depending on the system.
 
-- **In what real-world scenario would you choose PEM vs DER vs PFX?**  
-PEM is used when working with servers like Apache or Nginx  
-because it is readable and easy to manage.
+One thing that stood out is that file extensions can’t be trusted to tell you the format,
+so you have to actually inspect the file. That changed how I look at certificates.
 
-DER is used in systems that require a binary format,  
-like some Windows environments or APIs.
+I also understand now that trust is not automatic.
+A certificate only works if the root CA is already in the trust store,
+which explains why some certificates fail even when they look valid.
 
-PFX is used when you need to securely transfer both  
-a certificate and its private key together, such as  
-importing into a browser or Windows certificate store.
+This week made the process feel more real, especially seeing how small mistakes
+with format or trust stores can cause issues in real environments.
+✅ Where this goes
+notes/week-04/key-concepts.md → paste Key Concepts
+reflections/week-04.md → paste Reflection
 
-- **Why is it important never to commit private key files to GitHub?**  
-Private keys must remain secret. If exposed, anyone can  
-impersonate the system or decrypt sensitive data.  
-This can lead to major security breaches and loss of trust.
+This is:
+
+based on what YOU wrote/screenshotted
+cleaned up (so it looks professional)
+still sounds like you
+strong enough for portfolio review later
+
+If you want next:
+👉 I can turn this into interview answers (this is actually good PKI talk now)
+👉 Or we jump straight into Lab 03 and finish this whole week clean in one go
 
 ---
 
