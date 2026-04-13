@@ -1,74 +1,53 @@
-# Week 6 — PKI Diagnostics Key Takeaways
+# Week 6 — Notes
 
-## Core Concept
-PKI troubleshooting follows a structured process:
-1. Retrieve the certificate
-2. Parse certificate details
-3. Validate the certificate chain
-4. Check revocation and trust
-
-Each TLS issue can be traced by isolating which step fails.
+## PKI Diagnostic Process
+The troubleshooting process for TLS issues follows four steps:
+1. Retrieve the certificate using OpenSSL
+2. Parse the certificate to examine details like CN and SAN
+3. Validate the certificate chain to ensure trust path exists
+4. Check revocation and overall trust status
 
 ---
 
-## Lab 01 — Expired Certificate
-- TLS failed because the certificate was past its **NotAfter date**
-- Even with a valid chain, expired certificates are automatically untrusted
-- Key takeaway: **Validity period is a hard requirement**
+## Expired Certificate
+- Certificates contain a validity period (NotBefore and NotAfter)
+- If current date is past NotAfter, the certificate is rejected
+- Even a valid chain cannot override expiration
+- This results in immediate TLS failure
 
 ---
 
-## Lab 02 — Broken Chain
-- TLS failed due to a **missing intermediate certificate**
-- Server did not provide full chain → client could not build trust path
-- Key takeaway: **Servers must present full certificate chain**
+## Broken Certificate Chain
+- The server must send the full certificate chain (leaf + intermediate)
+- If the intermediate certificate is missing, clients cannot verify trust
+- OpenSSL shows errors like "unable to get local issuer certificate"
+- Fix requires adding the missing intermediate certificate
 
 ---
 
-## Lab 03 — SAN / Hostname Mismatch
-- TLS failed because hostname did NOT match certificate SAN
-- Wildcard (*.domain.com) only covers one level of subdomain
-- wrong.host.badssl.com ≠ *.badssl.com
-- Key takeaway: **Hostname validation is separate from chain validation**
+## SAN / Hostname Mismatch
+- TLS validates that the hostname matches the certificate
+- The SAN field defines valid domains for the certificate
+- Wildcards like *.domain.com only match one subdomain level
+- Multi-level domains (e.g., wrong.host.domain.com) will fail
+- This causes browser security warnings
 
 ---
 
-## Important Patterns Learned
-- TLS errors can look similar but have different root causes:
-  - Expired → time issue
-  - Broken chain → missing trust path
-  - SAN mismatch → identity mismatch
-
-- OpenSSL is used to:
-  - Retrieve certs (`s_client`)
-  - Inspect certs (`x509 -text`)
-  - Validate trust (`verify`)
+## Tools Used
+- openssl s_client → retrieve certificates
+- openssl x509 -text → inspect certificate details
+- openssl verify → check trust chain
 
 ---
 
-## Real-World Understanding
-- You are NOT fixing infrastructure yet
-- You are learning to:
-  - Diagnose issues
-  - Identify root cause
-  - Communicate fixes clearly
+## Important Distinction
+Different TLS failures come from different causes:
+- Expired = time issue
+- Broken chain = trust path issue
+- SAN mismatch = identity issue
 
-This is exactly what SOC analysts and security engineers do first.
-
----
-
-## Key Skill Built
-- Reading TLS errors
-- Understanding certificate structure (CN, SAN, Issuer)
-- Differentiating between:
-  - Certificate problems
-  - Chain problems
-  - Configuration problems
-
----
-
-## Big Picture
-PKI failures are not random — they fall into patterns:
+Understanding this distinction helps determine the correct fix.
 - Expiration
 - Trust chain issues
 - Identity mismatch
