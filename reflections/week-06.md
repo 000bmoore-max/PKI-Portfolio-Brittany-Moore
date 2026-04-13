@@ -6,4 +6,4 @@
 - SAN mismatch fails because hostname does not match certificate identity
 - Wildcard certificates only cover one level of subdomains
 - TLS failures can look similar but have different root causes
-📄 2. NOTES (DETAILED)
+
